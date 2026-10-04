@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Default Deny - Blocks all unauthenticated and undeclared access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // 2. User Profiles: strictly accessible only by the owner
+    // Listing the entire users collection is completely forbidden to prevent enumerating student accounts
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if false;
+
+      allow create: if isOwner(userId) 
+        && request.resource.data.id == userId
+        && request.resource.data.email is string
+        && (!('geminiApiKey' in request.resource.data) || request.resource.data.geminiApiKey is string);
+
+      allow update: if isOwner(userId) 
+        && request.resource.data.id == userId
+        && (!('geminiApiKey' in request.resource.data) || request.resource.data.geminiApiKey is string);
+
+      allow delete: if isOwner(userId);
+
+      // 3. User History Subcollection: strictly accessible only by the owner
+      match /history/{historyId} {
+        allow get: if isOwner(userId);
+        allow list: if isOwner(userId);
+        allow create: if isOwner(userId) 
+          && request.resource.data.userId == userId
+          && request.resource.data.question is string
+          && request.resource.data.question.size() <= 20000;
+        allow update: if isOwner(userId) 
+          && request.resource.data.userId == userId;
+        allow delete: if isOwner(userId);
+      }
+    }
+  }
+}
+

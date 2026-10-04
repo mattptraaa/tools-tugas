@@ -1,0 +1,8 @@
+{
+  "name": "UT FAMILY CARE - Tools buat nugas makin mudah",
+  "description": "Aplikasi UT FAMILY CARE: Tools buat nugas makin mudah. Asisten pencarian referensi jurnal ilmiah, analisis konsep soal berbasis AI, integrasi NotebookLM, panduan format jawaban yang baik, dan verifikasi skor AI QuillBot.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
