@@ -43,7 +43,7 @@ export const AcademicTemplateTab: React.FC<AcademicTemplateTabProps> = ({
   const [citationFormat, setCitationFormat] = useState("APA 7th Edition");
 
   // Fixed model: Gemini 3.8 Flash as requested
-  const fixedModel = "gemini-3.8-flash";
+  const fixedModel = "gemini-3.1-flash-lite";
 
   const [loading, setLoading] = useState(false);
   const [translating, setTranslating] = useState(false);
@@ -276,7 +276,7 @@ export const AcademicTemplateTab: React.FC<AcademicTemplateTabProps> = ({
 
           <div className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-sky-600 text-white font-bold text-xs shadow-2xs self-start md:self-auto shrink-0">
             <Zap className="w-3.5 h-3.5 text-sky-200" />
-            <span>Gemini 3.8 Flash</span>
+            <span>Gemini 3.1 Flash-lite</span>
           </div>
         </div>
 
