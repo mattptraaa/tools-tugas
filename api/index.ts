@@ -6,8 +6,8 @@ app.use(express.json());
 
 // Model resolution function
 function resolveModel(modelName?: string): string {
-  if (modelName === "gemini-3.8-flash") {
-    return "gemini-3.8-flash";
+  if (modelName === "gemini-3.1-flash-lite") {
+    return "gemini-3.1-flash-lite";
   }
   return "gemini-3.1-flash-lite";
 }
