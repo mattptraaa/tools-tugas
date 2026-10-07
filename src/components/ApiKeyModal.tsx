@@ -156,7 +156,7 @@ export const ApiKeyModal: React.FC = () => {
               <div className="p-2.5 rounded-lg bg-white dark:bg-[#0E1B38] border border-slate-200 dark:border-[#1E3563]">
                 <div className="flex items-center gap-1 font-bold text-sky-600 dark:text-sky-400 mb-0.5">
                   <Zap className="w-3.5 h-3.5" />
-                  <span>Gemini 3.8</span>
+                  <span>Gemini 3.1</span>
                 </div>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400">
                   Digunakan otomatis untuk Pemolesan Bahasa &amp; Terjemahan (Langkah 4).
