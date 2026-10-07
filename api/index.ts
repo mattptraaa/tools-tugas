@@ -205,7 +205,7 @@ Tugas Anda adalah merombak dan memoles draf jawaban mahasiswa berikut agar memil
 Konteks Tugas:
 - Jenis Tugas: ${type || "Tanggapan Forum Diskusi Kuliah"}
 - Format Sitasi Rujukan: ${format || "APA 7th Edition"}
-- Model yang Digunakan: ${model || "gemini-3.8-flash"}
+- Model yang Digunakan: ${model || "gemini-3.1-flash-lite"}
 
 Draf Awal Mahasiswa:
 """
